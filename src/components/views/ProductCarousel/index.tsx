@@ -2,7 +2,7 @@ import React from 'react'
 
 const ProductCarousel = ({productData}:any) => {
   return (
-    <div>ProductCarousel</div>
+    <div>{productData[0].productName}</div>
   )
 }
 

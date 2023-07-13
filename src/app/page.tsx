@@ -4,21 +4,20 @@ import ProductCarousel from '@/components/views/ProductCarousel';
 import ProductType from '@/components/views/ProductType'
 
 async function fetchAllProductsData(){
-//   const res=await fetch(`${BASE_PATH_FORAPI}/api/products`);
-// if (!res.ok){
-//   throw new Error("Fetch failed")
-// }
-// return res.json();
-return {response:"HI"}
+  const res=await fetch(`${BASE_PATH_FORAPI}/api/products`);
+if (!res.ok){
+  throw new Error("Fetch failed")
+}
+return res.json();
+
 }
 
  async function Home() {
   let {response} =await fetchAllProductsData();
-  console.log("response :",response)
   return (
     <div>
-    {/*<Hero/>
-    <ProductType/>*/}
+    <Hero/>
+    <ProductType/>
     <ProductCarousel productData={response}/>
     </div>
     
