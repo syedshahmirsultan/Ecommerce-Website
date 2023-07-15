@@ -14,30 +14,27 @@ import Expand from '../SubComponent/Expand'
 
 const Navbar = () => {
   const [isNavbarOpen,setIsNavbarOpen]= useState<boolean>(false);
-  const [cartItemNumber,setCartItemNumber] = useState();  return (
+  const [cartItemNumber,setCartItemNumber] = useState(0); 
+   return (
     <div className="sticky top-0 backdrop-blur-lg bg-opacityDownColor z-50">
     <div className="py-5 flex justify-between items-center space-x-12">
     <div className='w-36 flex-shrink-0'>
     <Image width={500} height={500} src="/images/Logo.webp" alt="logo"/>
     </div>
-  <div className="hidden lg:flex justify-between items-center w-full">
-    <ul className="flex font-medium text-lg space-x-4 text-purple-950">
-        {NavbarArray.map((item:NavbarItemType,i:number)=>{
-            return(
-            <li key={i} className='flex items-center relative rounded-sm px-3 py-1 hover:bg-gray-100 cursor-pointer group'>
-            <Link href={item.href}>
-            {item.label}
-            </Link>
-            {item.isDropDown? <HiOutlineChevronDown size={15} className="mt-1 rotate-180 group-hover:rotate-0 duration-300"/> :""}
-            {item.isDropDown && <div className={`invisible group-hover:visible absolute top-8 left-0 bg-gray-100 px-6 py-2 font-light min-w-[7.8rem]`}>
-</div>}
-            <DropDown item={item}/>
-            </li>
-            )
-        })}
-    </ul>
-    <div className="flex items-center border bg-white text-gray-600 px-1 rounded-md"><BiSearch/>
-    <input type="text" placeholder='What you looking for' className="focus:outline-none pl-1 pr-5 py-1 w-80 "/>
+    <div className="hidden lg:flex justify-between items-center w-full">
+  <ul className="flex space-x-4 font-medium text-lg text-purple-950">
+    {NavbarArray.map((item: NavbarItemType, index: number) => (
+                                <li key={index} className="flex items-center relative rounded-sm px-3 py-1 hover:bg-gray-100 cursor-pointer group">
+                                    <Link href={item.href} >{item.label}</Link>
+                                    {item.isDropDown ? <HiOutlineChevronDown className="mt-1 -rotate-180 group-hover:rotate-0 duration-300" size={15} /> : ""}
+                                  {item.isDropDown && <div className={`invisible group-hover:visible absolute top-8 left-0 py-2 px-6 bg-gray-100 font-light min-w-[7.8rem]`}>
+            <DropDown item={item} />
+                                    </div>}
+                                </li>
+                            ))}
+                        </ul>
+<div className="border flex items-center bg-white text-gray-600 pl-3 rounded-md" ><BiSearch />
+    <input type="text" placeholder='What you looking for ?' className="focus:outline-none pl-1 pr-5 py-1 w-80 flex-grow"/>
     </div>
     <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
    <div className="absolute w-4 flex h-4 top-1 right-2 text-xs 
@@ -71,14 +68,16 @@ const Navbar = () => {
 export default Navbar
 
 
-function MobileNavbar() {
+const MobileNavbar = () => {
   return (
-    <div className="w-full px-6 py-4 bg-gray-100">
-        {
-            NavbarArray.map((item:NavbarItemType,i:number)=>(
-                 <Expand key={i} item={item}/>
-            ))
-        }
-        </div>
+      <div className="w-full px-6 py-4 bg-gray-100">
+          {
+              NavbarArray.map((item: NavbarItemType, index: number) => {
+                  return (
+                      <Expand key={index} item={item} />
+                  )
+              })
+          }
+      </div>
   )
 }

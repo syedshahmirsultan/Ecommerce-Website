@@ -1,13 +1,11 @@
 import { createClient } from "next-sanity";
-import { NextResponse } from "next/server";
+import { NextResponse, NextRequest } from "next/server";
 import { SanityClient } from "sanity";
-import { client } from "../../../../sanity/lib/client";
 
-
-export default async function GET() {
+async function GET(request: NextRequest) {
     try {
-      let response = await client.fetch("*[_type ==\"products\"]")
-      return NextResponse.json({response})
+      let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == "products"]`);
+      return NextResponse.json({res})
     } catch (error) {
       console.log((error as {message:string}).message)
       return NextResponse.json({"Error": error})
