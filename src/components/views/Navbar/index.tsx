@@ -1,4 +1,4 @@
-"use client"
+
 import React from 'react'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {IoMdClose} from 'react-icons/io'
@@ -21,8 +21,7 @@ const Navbar = () => {
 
 
  function handleSearchCalledFunc(e:any){
-
-  if(e.key === "Enter" && e.keyCode ===13)
+  if(e.key === "Enter" && e.keyCode === 13)
 router.push(`/search/${searchQuery}`)
  }
    return (

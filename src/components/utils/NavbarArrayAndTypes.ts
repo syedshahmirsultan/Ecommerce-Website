@@ -15,7 +15,7 @@ dropDownData?:Array<NavbarItemType>
         dropDownData:
         [
             {
-                label:"Dresses",
+                label:"Dress",
             href:"/female/Dress",
             isDropDown:false
 
@@ -27,20 +27,20 @@ dropDownData?:Array<NavbarItemType>
 
             },
             {
-                label:"T-Shirts",
+                label:"T-Shirt",
             href:"/female/T-shirt",
             isDropDown:false
 
             },
 
             {
-                label:"Pants",
+                label:"Pant",
             href:"/female/Pant",
             isDropDown:false
 
             },
             {
-                label:"Jackets",
+                label:"Jacket",
             href:"/female/Jacket",
             isDropDown:false
 

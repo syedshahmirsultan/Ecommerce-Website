@@ -5,7 +5,7 @@ import Card from '@/components/views/Card';
 
 
 async function fetchAllProductsData() {
-  let res = await fetch(`https://{NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-07-10/data/query/production?query=*%5B_type+%3D%3D+%22product%22+%26%26+productTypes%5B0%5D+%3D%3D+%22Female%22%5D&perspective=published`, {
+  let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-07-10/data/query/production?query=*%5B_type+%3D%3D+%22product%22+%26%26+productTypes%5B0%5D+%3D%3D+%22Female%22%5D&perspective=published`, {
     next: {
       revalidate: 60
     }
