@@ -21,7 +21,7 @@ const  Female = async ( { params } : { params:{ ftype : string } } ) => {
   let res :responseType = await fetchAllProductsData();
  
    if(params.ftype ==="Female"){
-    let originalSortedDataOfParams = res.result.filter((items :oneProductType)=> items.productTypes[1] === params.ftype)
+    let originalSortedDataOfParams = res.result.filter((items :oneProductType)=> items.productTypes[0] === params.ftype)
      res ={result :originalSortedDataOfParams };
   }
 
