@@ -8,7 +8,7 @@ throw new Error("Failed To Fetch")
 }
 return res.json()
 }
-const Products = async() => {
+const Product = async() => {
   const productData = await fetchAllProductsData();
   return (
     <div>
@@ -17,4 +17,4 @@ const Products = async() => {
   )
 }
 
-export default Products
+export default Product
