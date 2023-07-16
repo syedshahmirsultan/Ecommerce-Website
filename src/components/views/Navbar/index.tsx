@@ -38,7 +38,7 @@ const Navbar = () => {
     </div>
     <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
    <div className="absolute w-4 flex h-4 top-1 right-2 text-xs 
-   font-light bg-red-400 justify-center items-center rounded-full">
+   font-light bg-[#F02D34] justify-center items-center rounded-full">
     {cartItemNumber}
    </div>
     <BsCart2 size={24}/>
