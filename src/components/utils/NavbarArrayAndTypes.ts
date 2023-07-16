@@ -68,14 +68,14 @@ dropDownData?:Array<NavbarItemType>
         
     },
     {
-        label:"Kids",
-        href:"/kids",
+        label:"Kid",
+        href:"/kid",
         isDropDown:false
         
     },
     {
         label:"All products",
-        href:"/allproducts",
+        href:"/products",
         isDropDown:false
         
     }
