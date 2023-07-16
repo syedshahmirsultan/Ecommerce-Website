@@ -11,10 +11,20 @@ import {BsCart2} from 'react-icons/bs';
 import DropDown from '../SubComponent/DropDown'
 import {NavbarArray ,NavbarItemType} from '@/components/utils/NavbarArrayAndTypes'
 import Expand from '../SubComponent/Expand'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
+ const router = useRouter();
   const [isNavbarOpen,setIsNavbarOpen]= useState<boolean>(false);
   const [cartItemNumber,setCartItemNumber] = useState(0); 
+ const [searchQuery ,setSearchQuery] = useState("");
+
+
+ function handleSearchCalledFunc(e:any){
+
+  if(e.key === "Enter" && e.keyCode ===13)
+router.push(`/search/${searchQuery}`)
+ }
    return (
     <div className="sticky top-0 backdrop-blur-lg bg-opacityDownColor z-50">
     <div className="py-5 flex justify-between items-center space-x-12">
@@ -33,8 +43,14 @@ const Navbar = () => {
                                 </li>
                             ))}
                         </ul>
-<div className="border flex items-center bg-white text-gray-600 pl-3 rounded-md" ><BiSearch />
-    <input type="text" placeholder='What you looking for ?' className="focus:outline-none pl-1 pr-5 py-1 w-80 flex-grow"/>
+<div className="border flex items-center bg-white text-gray-600 pl-3 rounded-md" >
+  <Link href={`/search/${searchQuery}`}><BiSearch /></Link>
+    <input type="text"
+    value={searchQuery} 
+    onChange={(e)=>setSearchQuery(e.target.value)}
+    onKeyDown={handleSearchCalledFunc}
+    placeholder='What you looking for ?'
+     className="focus:outline-none pl-1 pr-5 py-1 w-80 flex-grow"/>
     </div>
     <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
    <div className="absolute w-4 flex h-4 top-1 right-2 text-xs 
