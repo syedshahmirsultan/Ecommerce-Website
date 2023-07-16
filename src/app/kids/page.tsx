@@ -5,7 +5,7 @@ import Card from '@/components/views/Card';
 
 
 async function fetchAllProductsData() {
-  let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == "products" && productTypes[0] == "Female"]`, {
+  let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == "product" && productTypes[0] == "Female"]`, {
     next: {
       revalidate: 60
     }
@@ -17,7 +17,7 @@ return res.json();
 
 }
 
-const  Female = async ( { params } : { params:{ ftype : string } } ) => {
+const  Kid = async ( { params } : { params:{ ftype : string } } ) => {
   let res :responseType = await fetchAllProductsData();
  
    if(params.ftype ==="Female"){
@@ -34,4 +34,4 @@ const  Female = async ( { params } : { params:{ ftype : string } } ) => {
   )
 }
 
-export default Female
+export default Kid
