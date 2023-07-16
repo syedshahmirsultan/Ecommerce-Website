@@ -1,8 +1,19 @@
-import React from 'react'
+import BASE_PATH_FORAPI from "@/components/shared/BasePath"
+import AllProductsCompo from "@/components/views/AllProducts";
 
-const Products = () => {
+async function fetchAllProductsData() {
+let res =await fetch(`${BASE_PATH_FORAPI}/api/products?start=0&end=10`);
+if(!res.ok){
+throw new Error("Failed To Fetch")
+}
+return res.json()
+}
+const Products = async() => {
+  const productData = await fetchAllProductsData();
   return (
-    <div>Products</div>
+    <div>
+      <AllProductsCompo/>
+    </div>
   )
 }
 
