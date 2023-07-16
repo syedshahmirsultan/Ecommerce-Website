@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewsLetter = () => {
   return (
-    <div className="text-center space-y-4 h-[80vh] flex flex-col items-center">
+    <div className="text-center space-y-4 min-h-[40vh] md:h-[70vh] lg:h-[50rem] flex flex-col items-center">
     <h6 className='absolute text-6xl md:text-[9rem] font-bold text-gray-200 text-center mx-auto -z-50 '>NewsLetter</h6>
     <h6 className='text-3xl md:text-4xl font-bold text-gray-800'>Subscribe Our Newsletter</h6>
     <p className='max-w-[16rem] text-lg font-medium'>Get the latest information and promo offers directly</p>
