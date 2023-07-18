@@ -1,13 +1,10 @@
  "use client"
-
- import { Component, ReactNode } from "react"
- import { render } from "react-dom"
  import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
  import React, { FC } from 'react'
  import Card from '../Card'
  import "slick-carousel/slick/slick.css";
  import "slick-carousel/slick/slick-theme.css";
- import Slider from "react-slick";
+ 
 
 
 
@@ -56,8 +53,7 @@
 
 
 
-
-const ProductCarousel: FC<{ productData: Array<oneProductType> }> = ({ productData }) => {
+const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({ ProductData }) => {
     let initialX: number;
     let isDragging = false;
     let tabBox: any;
@@ -76,7 +72,6 @@ const ProductCarousel: FC<{ productData: Array<oneProductType> }> = ({ productDa
         }
     };
     function mouseDown() {
-        console.log("moving orignal")
         isDragging = true;
     }
     function mouseUp() {
@@ -96,27 +91,28 @@ const ProductCarousel: FC<{ productData: Array<oneProductType> }> = ({ productDa
         isDragging = true;
         initialX = e.touches[0].clientX;
     };
+    let dataToItrate = ProductData.slice(0, 15);
 
-let dataToIterate=productData.slice(0,15)
     return (
-      <div className="space-y-4">
-      <div className="text-center space-y-3">
-        <p className="text-blue-800 text-sm">PRODUCTS</p>
-        <h3 className="text-3xl text-gray-800 font-bold">Check What We Have</h3>
-      </div>
-        <div
-            onMouseMove={mouseMoves}
-            onMouseDown={mouseDown}
-            onMouseUp={mouseUp}
-            className="select-none flex gap-4 overflow-x-hidden scrollGrab py-4"
-            onTouchMove={mouseMovesForMobile}
-            onTouchStart={mouseDownForMobile}
-            onTouchEnd={mouseUp}
-        >
-            {dataToIterate.map((item: oneProductType, index: number) => (
-                <Card key={index + 4} singleProductData={item} />
-            ))}
-        </div></div>
+        <div className="space-y-4">
+            <div className="text-center space-y-3">
+                <p className="text-blue-800 text-sm">PROMOTIONS</p>
+                <h3 className="text-3xl text-gray-800 font-bold">Our Promotions Events</h3>
+            </div>
+            <div
+                onMouseMove={mouseMoves}
+                onMouseDown={mouseDown}
+                onMouseUp={mouseUp}
+                className="select-none flex gap-4 overflow-x-hidden scrollGrab py-4 overflow-y-hidden"
+                onTouchMove={mouseMovesForMobile}
+                onTouchStart={mouseDownForMobile}
+                onTouchEnd={mouseUp}
+            >
+                {dataToItrate.map((item: oneProductType, index: number) => (
+                    <Card key={index + 4} singleProductData={item} />
+                ))}
+            </div>
+        </div>
     )
 }
 

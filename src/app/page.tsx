@@ -26,7 +26,7 @@ return res.json();
     <div>
     <Hero/>
     <ProductType/>
-    <ProductCarousel productData={result}/>
+    <ProductCarousel ProductData={result}/>
     <Jewellery/>
     </div>
     
