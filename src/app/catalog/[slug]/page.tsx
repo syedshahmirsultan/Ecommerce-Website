@@ -11,7 +11,8 @@ async function fetchPreviewData(slug :string){
 
 
 const Catalog :FC<{params :{slug :string}}> = async({params}) => {
- let data : responseType = await fetchPreviewData(params.slug)
+  // @ts-ignore
+ let data :responseType = await fetchPreviewData(params.slug)
   return (
     <div><ProductDetail item={data.result[0]}/></div>
   )
