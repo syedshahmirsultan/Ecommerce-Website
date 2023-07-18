@@ -1,4 +1,4 @@
-
+"use client"
 import React from 'react'
 import {GiHamburgerMenu} from 'react-icons/gi'
 import {IoMdClose} from 'react-icons/io'
@@ -24,6 +24,7 @@ const Navbar = () => {
   if(e.key === "Enter" && e.keyCode === 13)
 router.push(`/search/${searchQuery}`)
  }
+ 
    return (
     <div className="sticky top-0 backdrop-blur-lg bg-opacityDownColor z-50">
     <div className="py-5 flex justify-between items-center space-x-12">

@@ -59,8 +59,8 @@ dropDownData?:Array<NavbarItemType>
 
             },
             {
-                label:"Jackets",
-            href:"/male/Jackets",
+                label:"Jacket",
+            href:"/male/Jacket",
             isDropDown:false
 
             }
