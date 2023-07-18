@@ -20,7 +20,7 @@ const Search = async ({ params }: { params: { query: string } }) => {
         <div
             className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4"
         >
-            { dataToMap.map((items: oneProductType, index: number) => (
+            { dataToMap && dataToMap.map((items: oneProductType, index: number) => (
                 <Card key={index} singleProductData={items} />
             ))}
         </div>
