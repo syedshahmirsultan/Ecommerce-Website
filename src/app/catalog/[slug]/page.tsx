@@ -6,13 +6,7 @@ import ContextWrapper from '@/global/Context';
 
 
 
-export async function generateStaticParams(){
-  return[
-  {
-    slug:"America"
-  }
-]
-}
+
 
 
 
