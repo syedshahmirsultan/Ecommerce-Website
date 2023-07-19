@@ -37,7 +37,7 @@ initializerOfCart.cart = JSON.parse(cart)
     )
   }
   
-  export const cartState = ()=>{
+  export const CartState = ()=>{
       const first = useContext(cartContext)
   }
   
