@@ -16,7 +16,6 @@ import { useRouter } from 'next/navigation'
 const Navbar = () => {
  const router = useRouter();
   const [isNavbarOpen,setIsNavbarOpen]= useState<boolean>(false);
-  const [cartItemNumber,setCartItemNumber] = useState(0); 
  const [searchQuery ,setSearchQuery] = useState("");
 
 
@@ -55,7 +54,7 @@ router.push(`/search/${searchQuery}`)
     <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
    <div className="absolute w-4 flex h-4 top-1 right-2 text-xs 
    font-light bg-[#F02D34] justify-center items-center rounded-full">
-    {cartItemNumber}
+    0
    </div>
     <BsCart2 size={24}/>
     </div>
