@@ -1,4 +1,4 @@
-"use client"
+// "use client"
 import React, { FC } from 'react'
 import Image from 'next/image'
 import { oneProductType } from '../utils/ProductsDataArrayAndType'

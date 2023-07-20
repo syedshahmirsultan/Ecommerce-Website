@@ -76,7 +76,7 @@ dispatch({
       
 
       {/* Right Side */}
-      <div className="w-[33rem] flex flex-wrap-0">
+      <div className="w-[17rem] md:w-[33rem] flex flex-wrap-0">
         { item.image.map((subItem :imagesType,i:number)=>{
           if(subItem._key === imageForPreviewOfSelected){
           return (
