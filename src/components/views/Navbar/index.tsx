@@ -12,6 +12,8 @@ import DropDown from '../SubComponent/DropDown'
 import {NavbarArray ,NavbarItemType} from '@/components/utils/NavbarArrayAndTypes'
 import Expand from '../SubComponent/Expand'
 import { useRouter } from 'next/navigation'
+import ContextWrapper from '@/global/Context'
+import CartState from '../SubComponent/CartState'
 
 const Navbar = () => {
  const router = useRouter();
@@ -25,6 +27,7 @@ router.push(`/search/${searchQuery}`)
  }
  
    return (
+    <ContextWrapper>
     <div className="sticky top-0 backdrop-blur-lg bg-opacityDownColor z-50">
     <div className="py-5 flex justify-between items-center space-x-12">
    <Link href="/"><div className='w-36 flex-shrink-0'>
@@ -51,13 +54,14 @@ router.push(`/search/${searchQuery}`)
     placeholder='What you looking for ?'
      className="focus:outline-none pl-1 pr-5 py-1 w-80 flex-grow"/>
     </div>
-    <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
+    {/* <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
    <div className="absolute w-4 flex h-4 top-1 right-2 text-xs 
    font-light bg-[#F02D34] justify-center items-center rounded-full">
     0
    </div>
     <BsCart2 size={24}/>
-    </div>
+    </div> */}
+    <CartState/>
     </div>
     <div onClick={() => setIsNavbarOpen(!isNavbarOpen)}>
         {
@@ -76,7 +80,7 @@ router.push(`/search/${searchQuery}`)
       isNavbarOpen && <MobileNavbar/>
       }
     
-    </div>
+    </div></ContextWrapper>
   )
 }
 
