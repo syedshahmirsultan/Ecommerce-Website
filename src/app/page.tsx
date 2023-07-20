@@ -5,6 +5,7 @@ import ProductType from '@/components/views/ProductType'
 import { responseType } from '@/components/utils/ProductsDataArrayAndType';
 import Jewellery from '@/components/views/Jewellery';
 import Female from './female/[ftype]/page';
+import NewsLetter from '@/components/views/NewsLetter';
 
 async function fetchAllProductsData(){
   let res=await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == "product"]`,{
@@ -28,6 +29,7 @@ return res.json();
     <ProductType/>
     <ProductCarousel ProductData={result}/>
     <Jewellery/>
+    <NewsLetter/>
     </div>
     
   )
