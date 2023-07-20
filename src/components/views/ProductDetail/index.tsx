@@ -6,6 +6,8 @@ import { client } from '../../../../sanity/lib/client';
 import  ImageUrlBuilder  from '@sanity/image-url'
 import { BsCart2 } from 'react-icons/bs';
 import ContextWrapper, { cartContext } from '@/global/Context';
+import PortableText from 'react-portable-text';
+import toast, {Toaster} from 'react-hot-toast'
 
 const builder :any = ImageUrlBuilder(client);
 
@@ -26,11 +28,13 @@ const ProductDetail:FC <{item :oneProductType}>= ({item}) => {
 
  function decrementTheQuantity(){
   if(quantity !== 0){
-    setQuantity(quantity - 1);
-   
-      
+    setQuantity(quantity - 1); 
   }
    }
+   const notification = (title:string) => toast(`${quantity} ${title} added to the Cart`,{
+   icon:'👏',
+   position:"top-right"
+  });
 
 
 function handleAddToCart(){
@@ -43,13 +47,15 @@ dispatch({
   data:dataToAddInCart
 }
   )
+  notification(item.productName);
 }
 
 
 
 
   return (
-    <ContextWrapper>
+    <div>
+      <Toaster/>
     <div className='flex flex-col lg:flex-row justify-center items-center py-7'>
        {/* Left Side */}
       <div className="gap-4 md:gap-8 flex"> 
@@ -122,13 +128,40 @@ dispatch({
 <p className='font-semibold text-2xl'>${item.price}{".00"}</p>
     </div>
       </div> 
-      </div></ContextWrapper>
+</div>
+<div>
+<div className='relative py-14 px-2 border-b border-gray-400'>
+<h2 className='top-0 absolute text-6xl md:text-[9rem] font-bold text-gray-200 text-center mx-auto -z-50'>Overview</h2>
+<p className='font-semibold text-xl'>Product Information</p>
+</div>
+<div className='text-gray-600'>
+<div className='flex py-4 px-2'>
+  <div className='w-80'>
+  <h3 className='font-semibold'>PRODUCT DETAILS</h3>
+  </div>
+  <p>
+  <PortableText content={item.description}/>
+  </p>
+</div>
+<div className='flex py-8 px-2'>
+  <div className='w-80'>
+  <h3 className='font-semibold'>PRODUCT CARE</h3>
+  </div>
+  <ul className='pl-3 font-bold text-gray-900 list-disc'>
+  <li>Hand wash using cold water.</li>
+  <li>Do not using bleach.</li>
+  <li>Hang it to dry.</li>
+  <li>Iron on low temperature.</li>
+  </ul>
+</div>
+</div>
+</div>
+<div className='h-16'/>
+</div>
+
   )
 }
 
 export default ProductDetail
 
-function context() {
-  throw new Error('Function not implemented.');
-}
 
