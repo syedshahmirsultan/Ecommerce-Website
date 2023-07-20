@@ -4,11 +4,7 @@ import AllProductsCompo from "@/components/views/AllProducts";
 
 async function fetchAllProductData() {
   try {
-    let res = await fetch(`${BASE_PATH_FORAPI}/api/product?start=0&end=10`, {
-      next: {
-        revalidate: 120
-      }
-    });
+    let res = await fetch(`${BASE_PATH_FORAPI}/api/product?start=0&end=10`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch. Please try again later.");
