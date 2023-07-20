@@ -1,4 +1,4 @@
- "use client"
+//  "use client"
  import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
  import React, { FC } from 'react'
  import Card from '../Card'

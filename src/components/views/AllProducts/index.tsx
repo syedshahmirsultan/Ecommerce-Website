@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import BASE_PATH_FORAPI from "@/components/shared/BasePath";
 import { oneProductType } from "@/components/utils/ProductsDataArrayAndType";
 import { Component } from "react";
