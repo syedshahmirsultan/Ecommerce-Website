@@ -3,7 +3,6 @@ import React, { FC, useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { RiDeleteBin6Line } from 'react-icons/ri'
 import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
-import { client } from '../../../../../sanity/lib/client'
 
 
 
