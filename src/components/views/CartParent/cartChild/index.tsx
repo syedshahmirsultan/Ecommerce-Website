@@ -24,7 +24,7 @@ const CartComp  = ({allProductsOfStore } :{allProductsOfStore :Array<oneProductT
     })
     setAllProductsForCart(data);
    }
-   }, [])
+   }, [allProductsForCart])
    
   return (
     <div className='py-10 px:4 md:px-10 '>

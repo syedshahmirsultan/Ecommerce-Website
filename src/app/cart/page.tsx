@@ -1,25 +1,19 @@
-import React from 'react'
-import Image from 'next/image'
-import {RiDeleteBin6Line} from 'react-icons/ri'
-import CartComp from '@/components/views/CartParent/cartChild'
-import ContextWrapper from '@/global/Context'
+import CartComp from "@/components/views/CartParent/cartChild"
+import ContextWrapper from "@/global/Context";
 
-
-async function FetchAllStoreProducts(){
-  let res=await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-07-10/data/query/production?query=*[_type == "product"]`,{
-      next:{
-          revalidate :60
-      }
+async function fatchAllStoreProducts() {
+  let res = await fetch(`https://peu0aj6l.api.sanity.io/v2023-05-26/data/query/production?query=*[_type == 'products']`, {
+    cache: "no-store",
   })
-return res.json()
-}
+  return res.json();
+};
 
 const Cart = async () => {
-  let allProductsOfStore = await FetchAllStoreProducts()
+  let allProductsOfStore = await fatchAllStoreProducts();
   return (
-   <div>
-    <CartComp allProductsOfStore ={allProductsOfStore.result}/>
-    </div>
+    <ContextWrapper>
+      <CartComp allProductsOfStore={allProductsOfStore.result} />
+    </ContextWrapper>
   )
 }
 
