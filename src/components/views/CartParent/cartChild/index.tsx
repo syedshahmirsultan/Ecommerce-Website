@@ -6,7 +6,6 @@ import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
 
 
 
-
 const CartComp  = ({allProductsOfStore } :{allProductsOfStore :Array<oneProductType>}) => {
    const [ allProductsForCart,setAllProductsForCart] = useState<any>();
    useEffect(() => {
@@ -24,7 +23,7 @@ const CartComp  = ({allProductsOfStore } :{allProductsOfStore :Array<oneProductT
     })
     setAllProductsForCart(data);
    }
-   }, [allProductsForCart])
+   },[])
    
   return (
     <div className='py-10 px:4 md:px-10 '>
@@ -38,6 +37,7 @@ const CartComp  = ({allProductsOfStore } :{allProductsOfStore :Array<oneProductT
 
   <div className='flex flex-col basis-[69%] gap-2'>
     {
+        //@ts-ignore
         allProductsForCart.map((item:oneProductType,i:number)=>{
             return( 
     <div key={i}><div className=' flex flex-shrink-0 gap-6'>
