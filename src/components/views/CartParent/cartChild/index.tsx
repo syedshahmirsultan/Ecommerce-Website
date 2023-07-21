@@ -7,7 +7,7 @@ import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
 
 
 
-const CartComp  = async({allProductsOfStore } :{allProductsOfStore :Array<oneProductType>}) => {
+const CartComp  = ({allProductsOfStore } :{allProductsOfStore :Array<oneProductType>}) => {
    const [ allProductsForCart,setAllProductsForCart] = useState<any>();
    useEffect(() => {
     let stateStorage :any = localStorage.getItem("cart") as string;
