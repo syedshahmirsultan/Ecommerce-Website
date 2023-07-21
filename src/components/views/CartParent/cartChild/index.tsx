@@ -2,17 +2,10 @@
 import React, { FC, useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { RiDeleteBin6Line } from 'react-icons/ri'
-import { cartContext } from '@/global/Context'
 import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
-import { ImageUrlBuilder } from '@sanity/image-url/lib/types/builder'
 import { client } from '../../../../../sanity/lib/client'
 
-//@ts-ignore
-const builder :any =  ImageUrlBuilder(client);
 
-function urlFor(source:any){
-  return builder.image(source)
-}
 
 
 const CartComp  = async({allProductsOfStore } :{allProductsOfStore :Array<oneProductType>}) => {
@@ -50,7 +43,7 @@ const CartComp  = async({allProductsOfStore } :{allProductsOfStore :Array<onePro
             return( 
     <div key={i}><div className=' flex flex-shrink-0 gap-6'>
                     <div className='w-[14rem]'>
-                     <Image className="rounded-xl" src={urlFor(item.image[0]).width(1000).height(1000).url()} alt={item.image[0].alt} width={1000} height={1000}/> 
+                     {/* <Image className="rounded-xl" src={urlFor(item.image[0]).width(1000).height(1000).url()} alt={item.image[0].alt} width={1000} height={1000}/>  */}
                     </div>
                     <div className='space-y-1 md:space-y-3 w-full'>
                         <div className='flex justify-between'>
