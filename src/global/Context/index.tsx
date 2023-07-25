@@ -1,9 +1,8 @@
 "use client"
 import { ReactNode, createContext, useEffect, useReducer, useState } from "react";
+import  auth  from "@/lib/firebase";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useRouter } from "next/navigation";
-import auth from "@/lib/firebase";
-import BASE_PATH_FORAPI from "@/components/shared/BasePath";
 
 export const cartContext = createContext<any>(null);
 
@@ -32,7 +31,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
 
     async function fetchApiForAllCartItems() {
         if (userData) {
-            let res = await fetch(`api/cartfunc?user_id=${userData.uuid}`);
+            let res = await fetch(`/api/cartfunc?user_id=${userData.uuid}`);
             if (!res.ok) {
                 throw new Error("Failed to Fetch")
             }
@@ -54,6 +53,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
 
     async function dispatch(payload: string, data: any) {
         if (payload === "addToCart") {
+            console.log("func running of add to cart");
             await fetch(`/api/cartfunc`, {
                 method: "POST",
                 body: JSON.stringify(data)
@@ -86,6 +86,11 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
 
 
 
+
+
+
+
+
     let user = auth.currentUser;
 
     useEffect(() => {
@@ -102,7 +107,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
                 setUserData(null);
             }
         });
-    },[])
+    }, [])
 
 
     let provider = new GoogleAuthProvider();
@@ -168,6 +173,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
         setLoading(true);
         if (user) {
             sendEmailVerification(user).then((res: any) => {
+                console.log("sended");
                 window.location.href = "/"
             })
             setLoading(false);
@@ -185,6 +191,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
                 window.location.reload();
             }).catch((error: any) => {
                 setLoading(false);
+                console.log(error)
             });
         }
     }
