@@ -8,7 +8,6 @@ import { client } from "../../../../../sanity/lib/client"
 import imageUrlBuilder from '@sanity/image-url'
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from "next/navigation"
-import BASE_PATH_FORAPI from "@/components/shared/BasePath"
 import LoadingComp from "@/components/shared/LoadingComp"
 
 
@@ -122,7 +121,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
 
     async function handleProcessCheckout() {
         setLoadings(true);
-        let linkOrg: any = await fetch(`/api/checkout_sessions`, {
+        let linkOrg: any = await fetch(`/api/checkOut_sessions`, {
             method: "POST",
             body: JSON.stringify(allProductsForCart)
         })
@@ -179,7 +178,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
                                             <button
                                                 onClick={() => handleIncrementByOne(item._id, item.price)}
                                                 disabled={loadings}
-                                                className="border select-none cursor-pointer flex justify-center items-center w-8 h-8 rounded-full  border-gray-800"
+                                                className="border select-none cursor-pointer flex justify-center items-center w-8 h-8 rounded-full border-gray-800"
                                             >
                                                 +
                                             </button>
