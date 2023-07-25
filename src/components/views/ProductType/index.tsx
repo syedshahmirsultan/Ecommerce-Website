@@ -20,7 +20,7 @@ const ProductsType = () => {
             <p className="text-xl">For the summer season</p>
           </div>
           <div className="w-64">
-            <Image width={1000} height={1000} alt="summer season" src={"/images/promotiopic.webp"} />
+            <Image width={1000} height={1000} alt="summer season" src={"/images/promotionpic.webp"} />
           </div>
         </div>
 
