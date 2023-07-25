@@ -36,7 +36,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
                 throw new Error("Failed to Fetch")
             }
             let dataToreturn = await res.json();
-            await setCartArray((prev: any) => dataToreturn.allCartData);
+             setCartArray((prev: any) => dataToreturn.allCartData);
             router.refresh();
             if (dataToreturn) {
                 return true
