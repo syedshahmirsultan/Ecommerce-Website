@@ -18,7 +18,7 @@ const notificationError = (title: string) => {
     })
 };
 
-const SignupFormComp = () => {
+const SignUpFormComp = () => {
     let { errorsOfFirebase, signUpUser, userData, signUpViaGoogle, loading, sendEmailVerificationCode } = useContext(cartContext);
 
     useEffect(() => {
@@ -172,4 +172,4 @@ const SignupFormComp = () => {
     );
 };
 
-export default SignupFormComp;
+export default SignUpFormComp;
