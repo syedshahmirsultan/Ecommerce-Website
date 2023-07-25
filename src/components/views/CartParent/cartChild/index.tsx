@@ -120,7 +120,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
 
     async function handleProcessCheckout() {
         setLoadings(true);
-        let linkOrg: any = await fetch(`/api/checkOut_sessions`, {
+        let linkOrg: any = await fetch(`/api/checkout_sessions`, {
             method: "POST",
             body: JSON.stringify(allProductsForCart)
         })
