@@ -4,7 +4,6 @@ import { cartContext } from "@/global/Context"
 import Image from "next/image"
 import { FC, useContext, useEffect, useState } from "react"
 import { RiDeleteBin6Line } from "react-icons/ri"
-import AllProductsCompo from "../../AllProducts"
 import { client } from "../../../../../sanity/lib/client"
 import imageUrlBuilder from '@sanity/image-url'
 import toast, { Toaster } from "react-hot-toast"
@@ -30,7 +29,8 @@ const notificationError = (title: string) => {
 const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProductType> }) => {
     const [loadings, setLoadings] = useState<boolean>(false);
     const [allProductsForCart, setAllProductsForCart] = useState<any>();
-    let { userData, cartArray, dispatch, loading, setLoading } = useContext(cartContext)
+    let { userData, cartArray, dispatch } = useContext(cartContext)
+    //loading in usecontext
     const [totalPrice, setTotalPrice] = useState(0);
     let router = useRouter();
 
@@ -158,7 +158,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
                                 <div className="space-y-1 md:space-y-3 w-full">
                                     <div className="flex justify-between">
                                         <h2 className="md:text-2xl font-light text-gray-700">{item.productName}</h2>
-                                        {loading ? <LoadingComp size={"w-10"} /> :
+                                        {loadings ? <LoadingComp size={"w-10"} /> :
                                             <div className="cursor-pointer" onClick={() => handleRemove(item._id)}>
                                                 <RiDeleteBin6Line size={28} />
                                             </div>
@@ -169,7 +169,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
                                     <h4 className="text-orange-400 font-semibold md:text-xl">5 Working Days</h4>
                                     <div className="flex justify-between">
                                         <p className="font-semibold md:text-lg">{"$"}{item.price}</p>
-                                        <div className={`flex gap-2 ${loading ? "opacity-25" : "opacity-100"} items-center text-lg`}>
+                                        <div className={`flex gap-2 ${loadings ? "opacity-25" : "opacity-100"} items-center text-lg`}>
                                             <button
                                                 onClick={() => handleDecrementByOne(item._id, item.price)}
                                                 className="select-none cursor-pointer flex justify-center items-center w-8 h-8 rounded-full bg-gray-200">
@@ -178,7 +178,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
                                             <p>{item.quantity}</p>
                                             <button
                                                 onClick={() => handleIncrementByOne(item._id, item.price)}
-                                                disabled={loading}
+                                                disabled={loadings}
                                                 className="border select-none cursor-pointer flex justify-center items-center w-8 h-8 rounded-full  border-gray-800"
                                             >
                                                 +
