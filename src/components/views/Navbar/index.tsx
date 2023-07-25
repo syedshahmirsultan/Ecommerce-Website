@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className="sticky top-0 backdrop-blur-lg bg-gradient-to-tr from-white via-[#ffffffde] to-opacityDownColor z-20">
                 <div className="py-5 flex justify-between items-center gap-8">
                     <Link href="/" className="w-36 flex-shrink-0">
-                        <Image width={500} height={500} src={"/Logo.webp"} alt="Logo" />
+                        <Image width={500} height={500} src={"/images/Logo.webp"} alt="Logo" />
                     </Link>
                     <div className="hidden lg:flex justify-between items-center w-full">
                         <ul className="flex space-x-4 font-medium text-lg text-purple-950">
