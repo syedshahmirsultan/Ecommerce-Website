@@ -1,5 +1,5 @@
 import { oneProductType, responseType } from "@/components/utils/ProductsDataArrayAndType";
-import CardAll from "@/components/views/Card";
+import CardAll from "@/components/views/CardAll";
 import { FC } from "react"
 
 async function fetchAllProductsData() {
