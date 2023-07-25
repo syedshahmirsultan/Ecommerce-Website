@@ -1,9 +1,9 @@
 import { oneProductType } from "@/components/utils/ProductsDataArrayAndType";
 import { client } from "../../../../sanity/lib/client";
-import CardAll from "@/components/views/Card";
+import CardAll from "@/components/views/CardAll";
 
 async function getAllProductsForSearch() {
-    let response = await client.fetch(`*[_type == "Products"]`);
+    let response = await client.fetch(`*[_type == "product"]`);
     return response;
 };
 
@@ -18,10 +18,9 @@ const Search = async ({ params }: { params: { query: string } }) => {
     });
     return (
         <div
-            className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4"
-        >
+            className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4">
             {dataToMap && dataToMap.map((items: oneProductType, index: number) => (
-                <CardAll key={index} singleProductData={items} />
+                <CardAll key={index} singleProductData={items}/>
             ))}
         </div>
     )
