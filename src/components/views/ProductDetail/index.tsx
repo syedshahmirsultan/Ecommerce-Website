@@ -17,7 +17,7 @@ function urlFor(source: any) {
 
 
 const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
-  let { cartArray, userData, dispatch } = useContext(cartContext)
+  let { cartArray, userData, dispatch } = useContext(cartContext);
   const [imageForPreviewOfSelected, setImageForPreviewOfSelected] = useState<string>(item.image[0]._key);
   const [quantity, setQuantity] = useState(1);
 

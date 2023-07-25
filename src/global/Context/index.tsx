@@ -25,8 +25,9 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
     const [quantity, setQuantity] = useState(0);
 
     useEffect(() => {
-        if (cartArray.length !== 0) {
+        if (cartArray.length != 0) {
             setQuantity(cartArray.length);
+            router.refresh();
         }
     }, [cartArray])
 
