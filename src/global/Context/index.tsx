@@ -32,7 +32,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
 
     async function fetchApiForAllCartItems() {
         if (userData) {
-            let res = await fetch(`api/cartFunc?user_id=${userData.uuid}`);
+            let res = await fetch(`/api/cartfunc?user_id=${userData.uuid}`);
             if (!res.ok) {
                 throw new Error("Failed to Fetch")
             }
@@ -55,18 +55,18 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
     async function dispatch(payload: string, data: any) {
         if (payload === "addToCart") {
             console.log("func running of add to cart");
-            await fetch(`api/cartFunc`, {
+            await fetch(`/api/cartfunc`, {
                 method: "POST",
                 body: JSON.stringify(data)
             });
         } else if (payload === "removeFromCart") {
-            let dataa = await fetch(`api/cartFunc?product_id=${data.product_id}&user_id=${data.user_id}`, {
+            let dataa = await fetch(`/api/cartfunc?product_id=${data.product_id}&user_id=${data.user_id}`, {
                 method: "DELETE",
             });
             let NotData = await dataa.json();
         } else if (payload === "updateCart") {
             setLoading(true);
-            let dataa = await fetch(`api/cartFunc`, {
+            let dataa = await fetch(`/api/cartfunc`, {
                 method: "PUT",
                 body: JSON.stringify(data)
             });
