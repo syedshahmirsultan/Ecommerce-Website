@@ -1,10 +1,9 @@
 
-import BASE_PATH_FORAPI from "@/components/shared/BasePath";
 import AllProductsCompo from "@/components/views/AllProducts";
 
 async function fetchAllProductData() {
   try {
-    let res = await fetch(`${BASE_PATH_FORAPI}/api/product?start=0&end=10`);
+    let res = await fetch(`api/product?start=0&end=10`);
 
     if (!res.ok) {
       throw new Error("Failed to fetch. Please try again later.");
@@ -22,7 +21,7 @@ const Products = async () => {
     const productData = await fetchAllProductData();
     return <AllProductsCompo productData={productData} />;
   } catch (error) {
-    return console.log(error);
+    return error;
   }
 };
 

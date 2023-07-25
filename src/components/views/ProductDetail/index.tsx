@@ -16,9 +16,31 @@ function urlFor(source:any){
 }
 const ProductDetail:FC <{item :oneProductType}>= ({item}) => {
 
- let [state,dispatch] = useContext(cartContext);
- const [imageForPreviewOfSelected ,setImageForPreviewOfSelected] = useState<string>(item.image[0]._key);
- const [quantity,setQuantity] = useState(1);
+  let [cartArray,userData,dispatch] = useContext(cartContext);
+  const [imageForPreviewOfSelected ,setImageForPreviewOfSelected] = useState<string>(item.image[0]._key);
+  const [quantity,setQuantity] = useState(1);
+
+  function handleAddToCart(){
+   let isExists =  cartArray.some((elem:any)=>elem.product_Id ===item._id)
+    if(userData){
+  let dataToAddInCart ={
+    productId:item._id,
+    quantity:quantity,
+    user_id:userData.uuid,
+    price:item.price
+  }
+  if(!isExists){
+  dispatch("addToCart",dataToAddInCart)
+}else{
+  dispatch("updateToCart",dataToAddInCart);
+}
+  notification(item.productName);
+  }
+  
+  else{  
+    notificationError("Please Login first");
+  }
+  }
 
   
  function incrementTheQuantity(){
@@ -36,19 +58,12 @@ const ProductDetail:FC <{item :oneProductType}>= ({item}) => {
    position:"top-right"
   });
 
+  const notificationError = (title:string) => 
+  toast(title,{
+    position:"top-right"
+   });
 
-function handleAddToCart(){
-let dataToAddInCart ={
-  productId:item._id,
-  quantity:quantity
-}
-dispatch({
-  payload:"addToCart",
-  data:dataToAddInCart
-}
-  )
-  notification(item.productName);
-}
+
 
 
 

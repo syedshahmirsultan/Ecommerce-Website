@@ -1,4 +1,3 @@
-import BASE_PATH_FORAPI from '@/components/shared/BasePath';
 import Hero from '@/components/views/Hero'
 import ProductCarousel from '@/components/views/ProductCarousel';
 import ProductType from '@/components/views/ProductType'
@@ -24,7 +23,7 @@ return res.json();
  async function Home() {
   let {result} :responseType=await fetchAllProductsData();
   return (
-    <div>
+    <div className='overflow-hidden'>
     <Hero/>
     <ProductType/>
     <ProductCarousel ProductData={result}/>

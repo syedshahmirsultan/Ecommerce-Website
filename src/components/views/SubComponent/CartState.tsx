@@ -1,17 +1,22 @@
+"use client"
 import { cartContext } from '@/global/Context'
 import { data } from 'autoprefixer'
 import React, { useContext, useEffect, useState } from 'react'
-import { BsCart2 } from 'react-icons/bs'
+import {BsCart2} from 'react-icons/bs'
+
 
 const CartState = () => {
-const [quantity,setQuantity] = useState(0)
+  let {cartArray} = useContext(cartContext);
+const [quantity,setQuantity] = useState(0);
     const isBrowser = () => typeof window !== undefined;
 useEffect(() => {
-let data = localStorage.getItem('cart') as string;
-setQuantity(JSON.parse(data).lenght)
-  },[]
+  if(cartArray.lenght !== 0){
+setQuantity(cartArray.lenght)
+  }
+
+  },[cartArray]
 )
-if(isBrowser()){
+
   return( 
     <div>
     <div className="flex-shrink-0 relative w-11 h-11 bg-gray-300 rounded-full flex items-center justify-center">
@@ -21,6 +26,6 @@ if(isBrowser()){
    </div>
     <BsCart2 size={24}/></div></div>)
   
-}}
+}
 
 export default CartState; 

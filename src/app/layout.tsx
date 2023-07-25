@@ -19,10 +19,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+ 
+ 
+
   return (
     <html lang="en">
       <body className={inter.className}>
-      <TopLabel/>
+        <div className='overflow-hidden w-screen'>
+      <TopLabel/></div>
         <Wrapper>
         <Navbar/>
         <div className='min-h-screen'>{children}</div>

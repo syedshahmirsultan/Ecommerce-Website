@@ -28,7 +28,7 @@ router.push(`/search/${searchQuery}`)
  
    return (
     <ContextWrapper>
-    <div className="sticky top-0 backdrop-blur-lg bg-opacityDownColor z-50">
+    <div className="sticky top-0 backdrop-blur-lg bg-opacityDownColor z-20">
     <div className="py-5 flex justify-between items-center space-x-12">
    <Link href="/"><div className='w-36 flex-shrink-0'>
     <Image width={500} height={500} src="/images/Logo.webp" alt="logo"/>

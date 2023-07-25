@@ -1,9 +1,9 @@
 "use client"
-import BASE_PATH_FORAPI from "@/components/shared/BasePath";
 import { oneProductType } from "@/components/utils/ProductsDataArrayAndType";
 import { Component } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Card from "../Card";
+import BASE_PATH_FORAPI from "@/components/shared/BasePath";
 
 interface propsType{
     productArray: Array<oneProductType>
