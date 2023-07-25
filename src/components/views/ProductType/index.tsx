@@ -7,7 +7,7 @@ const ProductsType = () => {
       {/* Heading */}
       <div className="text-center space-y-3">
         <p className="text-blue-800 text-sm">PROMOTIONS</p>
-        <h3 className="text-3xl text-gray-800 font-bold">Our Promotions Events</h3>
+        <h3 className="text-3xl text-gray-800 font-bold">Our  Events</h3>
       </div>
 
       {/* Grid */}
@@ -20,7 +20,7 @@ const ProductsType = () => {
             <p className="text-xl">For the summer season</p>
           </div>
           <div className="w-64">
-            <Image width={1000} height={1000} alt="summer season" src={"https://full-stack-ecommerce-clothing-web.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fevent1.6f776995.png&w=384&q=75"} />
+            <Image width={1000} height={1000} alt="summer season" src={"/images/promotiopic.webp"} />
           </div>
         </div>
 
@@ -41,7 +41,7 @@ const ProductsType = () => {
 
           {/* image */}
           <div className="w-64">
-            <Image width={1000} height={1000} alt="sweaters" src={"https://full-stack-ecommerce-clothing-web.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fevent2.b5f201ac.png&w=384&q=75"} />
+            <Image width={1000} height={1000} alt="sweaters" src={"/images/promotionpic1.webp"} />
           </div>
         </div>
 
@@ -62,7 +62,7 @@ const ProductsType = () => {
 
           {/* image */}
           <div className="w-64">
-            <Image width={1000} height={1000} alt="sweaters" src={"https://full-stack-ecommerce-clothing-web.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fevent3.798fa92b.png&w=384&q=75"} />
+            <Image width={1000} height={1000} alt="sweaters" src={"/images/promotionpic2.webp"} />
           </div>
         </div>
 
