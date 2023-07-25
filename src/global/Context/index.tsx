@@ -3,6 +3,7 @@ import { ReactNode, createContext, useEffect, useReducer, useState } from "react
 import  auth  from "@/lib/firebase";
 import { GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useRouter } from "next/navigation";
+import BASE_PATH_FORAPI from "@/components/shared/BasePath";
 
 export const cartContext = createContext<any>(null);
 
@@ -31,7 +32,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
 
     async function fetchApiForAllCartItems() {
         if (userData) {
-            let res = await fetch(`/api/cartFunc?user_id=${userData.uuid}`);
+            let res = await fetch(`${BASE_PATH_FORAPI}/api/cartFunc?user_id=${userData.uuid}`);
             if (!res.ok) {
                 throw new Error("Failed to Fetch")
             }
@@ -59,13 +60,13 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
                 body: JSON.stringify(data)
             });
         } else if (payload === "removeFromCart") {
-            let dataa = await fetch(`/api/cartFunc?product_id=${data.product_id}&user_id=${data.user_id}`, {
+            let dataa = await fetch(`${BASE_PATH_FORAPI}/api/cartFunc?product_id=${data.product_id}&user_id=${data.user_id}`, {
                 method: "DELETE",
             });
             let NotData = await dataa.json();
         } else if (payload === "updateCart") {
             setLoading(true);
-            let dataa = await fetch(`/api/cartFunc`, {
+            let dataa = await fetch(`${BASE_PATH_FORAPI}/api/cartFunc`, {
                 method: "PUT",
                 body: JSON.stringify(data)
             });
