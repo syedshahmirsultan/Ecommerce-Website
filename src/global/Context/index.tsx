@@ -155,7 +155,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
             let error = res.code.split("/")
             error = error[error.length - 1];
             setErrorsOfFirebase({
-                key: "signin",
+                key: "signIn",
                 errorMessage: error
             })
         });
@@ -185,7 +185,7 @@ const ContextWrapper = ({ children }: { children: ReactNode }) => {
         setLoading(true);
         if (user) {
             updateProfile(user, {
-                displayName: userName, photoURL: "https://abdulbasit-self.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FAbdulBasit.40cf649b.png&w=640&q=75"
+                displayName: userName
             }).then(() => {
                 setLoading(false);
                 window.location.reload();

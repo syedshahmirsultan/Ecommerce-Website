@@ -78,7 +78,7 @@ const SignInForm = () => {
           className="bg-purple-700 text-white rounded-md py-2 px-4 font-medium"
           onClick={handleSignIn}
         >
-          {loading ? "Loading..." : "Sign In"}
+          {loading ? "Loading..." : "SignIn"}
         </button>
       </div>
     </div>
