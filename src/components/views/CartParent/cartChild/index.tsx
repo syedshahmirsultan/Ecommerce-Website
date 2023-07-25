@@ -1,15 +1,17 @@
 "use client"
 import { oneProductType } from "@/components/utils/ProductsDataArrayAndType"
+import { cartContext } from "@/global/Context"
 import Image from "next/image"
 import { FC, useContext, useEffect, useState } from "react"
 import { RiDeleteBin6Line } from "react-icons/ri"
+import AllProductsCompo from "../../AllProducts"
 import { client } from "../../../../../sanity/lib/client"
 import imageUrlBuilder from '@sanity/image-url'
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from "next/navigation"
-import LoadingComp from "@/components/shared/LoadingComp"
-import { cartContext } from "@/global/Context"
 import BASE_PATH_FORAPI from "@/components/shared/BasePath"
+import LoadingComp from "@/components/shared/LoadingComp"
+
 
 
 const builder: any = imageUrlBuilder(client);
@@ -120,7 +122,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
 
     async function handleProcessCheckout() {
         setLoadings(true);
-        let linkOrg: any = await fetch(`${BASE_PATH_FORAPI}/api/checkout_sessions`, {
+        let linkOrg: any = await fetch(`/api/checkout_sessions`, {
             method: "POST",
             body: JSON.stringify(allProductsForCart)
         })

@@ -1,6 +1,6 @@
 import { FC } from "react"
 import { HiOutlineChevronDown } from "react-icons/hi"
-import { NavbarArray, NavbarItemType } from "@/components/utils/NavbarArrayAndTypes"
+import {  NavbarItemType } from "@/components/utils/NavbarArrayAndTypes"
 import Link from "next/link"
 import { useState } from "react"
 

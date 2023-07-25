@@ -1,8 +1,7 @@
-  "use client"
- import { oneProductType } from '@/components/utils/ProductsDataArrayAndType'
- import React, { FC } from 'react'
- import Card from '../Card'
-
+"use client"
+import { oneProductType } from "@/components/utils/ProductsDataArrayAndType"
+import { Component, FC, ReactNode } from "react"
+import Card from "../Card"
 
 const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({ ProductData }) => {
     let initialX: number;
@@ -35,7 +34,7 @@ const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({ ProductDa
         if (tabBox) {
             var currentX = e.touches[0].clientX;
             var movementX = currentX - initialX;
-            tabBox.scrollLeft -= movementX / 4;
+            tabBox.scrollLeft -= movementX / 5;
         }
     };
     function mouseDownForMobile(e: any) {
@@ -45,10 +44,10 @@ const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({ ProductDa
     let dataToItrate = ProductData.slice(0, 15);
 
     return (
-        <div className="space-y-4 py-6">
+        <div className="space-y-4">
             <div className="text-center space-y-3">
-                <p className="text-blue-800 text-sm">PRODUCTS</p>
-                <h3 className="text-3xl text-gray-800 font-bold">Check What We Have</h3>
+                <p className="text-blue-800 text-sm">PROMOTIONS</p>
+                <h3 className="text-3xl text-gray-800 font-bold">Our Promotions Events</h3>
             </div>
             <div
                 onMouseMove={mouseMoves}
@@ -57,7 +56,8 @@ const ProductCarousel: FC<{ ProductData: Array<oneProductType> }> = ({ ProductDa
                 className="select-none flex gap-4 overflow-x-hidden scrollGrab py-4 overflow-y-hidden"
                 onTouchMove={mouseMovesForMobile}
                 onTouchStart={mouseDownForMobile}
-                onTouchEnd={mouseUp} >
+                onTouchEnd={mouseUp}
+            >
                 {dataToItrate.map((item: oneProductType, index: number) => (
                     <Card key={index + 4} singleProductData={item} />
                 ))}

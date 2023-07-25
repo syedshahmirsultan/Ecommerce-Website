@@ -6,8 +6,8 @@ export async function GET(request: NextRequest) {
     const url = request.nextUrl.searchParams;
 
     let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == "product"]`);
-    let dataFrom_API = await res.json();
-    orignalData.push(...dataFrom_API.result)
+    let dataFrom_APi = await res.json();
+    orignalData.push(...dataFrom_APi.result)
 
     if (url.has("start") || url.has("end")) {
         if (orignalData[Number(url.get("start"))]) {
@@ -20,5 +20,3 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({ orignalData })
 };
-
-

@@ -20,7 +20,7 @@ const ProductsType = () => {
             <p className="text-xl">For the summer season</p>
           </div>
           <div className="w-64">
-            <Image width={1000} height={1000} alt="summer season" src={"/images/promotionpic.webp"} />
+            <Image width={1000} height={1000} alt="summer season" src={"https://full-stack-ecommerce-clothing-web.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fevent1.6f776995.png&w=384&q=75"} />
           </div>
         </div>
 
@@ -41,7 +41,7 @@ const ProductsType = () => {
 
           {/* image */}
           <div className="w-64">
-            <Image width={1000} height={1000} alt="sweaters" src={"/images/promotionpic1.webp"} />
+            <Image width={1000} height={1000} alt="sweaters" src={"https://full-stack-ecommerce-clothing-web.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fevent2.b5f201ac.png&w=384&q=75"} />
           </div>
         </div>
 
@@ -62,21 +62,24 @@ const ProductsType = () => {
 
           {/* image */}
           <div className="w-64">
-            <Image width={1000} height={1000} alt="sweaters" src={"/images/promotionpic2.webp"} />
+            <Image width={1000} height={1000} alt="sweaters" src={"https://full-stack-ecommerce-clothing-web.vercel.app/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fevent3.798fa92b.png&w=384&q=75"} />
           </div>
         </div>
 
 
         {/* fourth grid */}
-        <div className="py-9 text-white w-full col-1 md:col-span-2 bg-cat2 flex flex-col justify-center items-center space-y-3">
+        <div className="py-9 text-white w-full col-auto md:col-span-2 bg-cat2 flex flex-col justify-center items-center space-y-3">
           <h3 className="font-extrabold text-4xl">GET 30% Off</h3>
           <p>USE PROMO CODE</p>
           <button
             aria-label="Redirect user to Dine Week End Sale"
-            className="py-1 px-8 text-lg font-medium bg-[#474747] rounded-lg tracking-widest">
-      DINEWEEKENDSALE
+            className="py-1 px-8 text-lg font-medium bg-[#474747] rounded-lg tracking-widest"
+          >
+            DINEWEEKENDSALE
           </button>
         </div>
+
+
       </div>
     </div>
   )
