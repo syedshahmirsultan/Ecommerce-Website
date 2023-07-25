@@ -50,7 +50,6 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
         PriceSubTotal();
     }, [allProductsForCart])
 
-
     function handleRemove(product_id: string) {
         if (userData) {
             let user_id = userData.uuid;
