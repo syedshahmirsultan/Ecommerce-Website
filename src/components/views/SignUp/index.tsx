@@ -1,10 +1,10 @@
 "use client"
 import { ImGoogle } from "react-icons/im"
-import { cartContext } from '@/global/Context';
 import Link from 'next/link';
 import { useContext, useEffect, useState } from 'react';
 import toast, { Toaster } from "react-hot-toast";
-
+import { cartContext } from './../../../global/Context/index';
+import React from "react";
 type SignupFormData = {
     fullName: string;
     email: string;

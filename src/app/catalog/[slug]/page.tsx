@@ -2,9 +2,6 @@ import BASE_PATH_FORAPI from "@/components/shared/BasePath"
 import { responseType, oneProductType } from "@/components/utils/ProductsDataArrayAndType"
 import ProductDetail from "@/components/views/ProductDetail"
 import ContextWrapper from "@/global/Context"
-import { FC } from "react"
-import { Metadata } from 'next';
-
 // metadata genrator
 export async function generateMetadata({ params }: { params: { slug: string } }) {
     const slug = params.slug;
