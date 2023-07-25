@@ -50,7 +50,7 @@ const SignupFormComp = () => {
         }));
     };
 
-    const handleSignup = () => {
+    const handleSignUp = () => {
         const { fullName, email, password } = formData;
         const validationErrors: { [key: string]: string } = {};
 
@@ -83,7 +83,7 @@ const SignupFormComp = () => {
         <div className="flex flex-col items-center justify-center min-h-screen">
             <Toaster />
             <div className="bg-slate-100 shadow-2xl border-t-8 border-pink-700 rounded px-4 md:px-8 pt-6 pb-8">
-                <h2 className="text-2xl font-bold mb-4">Signup</h2>
+                <h2 className="text-2xl font-bold mb-4">SignUp</h2>
                 <div className="mb-4">
                     <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="fullName">
                         Full Name
@@ -152,9 +152,9 @@ const SignupFormComp = () => {
                         disabled={loading}
                         className="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 md:px-5 rounded focus:outline-none focus:shadow-outline"
                         type="button"
-                        onClick={handleSignup}
+                        onClick={handleSignUp}
                     >
-                        {loading ? "Loading..." : "Signup"}
+                        {loading ? "Loading..." : "SignUp"}
                     </button>
                 </div>
                 {userData && (
