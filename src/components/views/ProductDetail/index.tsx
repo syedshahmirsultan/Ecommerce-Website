@@ -26,8 +26,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
 
 
   function handleAddToCart() {
-    let isExsits = cartArray.some((elem: any) => elem.product_id === item._id);
-
+    let isExists = cartArray.some((elem: any) => elem.product_id === item._id);
     if (userData) {
       let dataToAddInCart = {
         product_id: item._id,
@@ -35,7 +34,7 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
         user_id: userData.uuid,
         price:item.price,
       };
-      if (!isExsits) {
+      if (!isExists) {
         dispatch("addToCart", dataToAddInCart);
       }else{
         dispatch("updateCart", dataToAddInCart)

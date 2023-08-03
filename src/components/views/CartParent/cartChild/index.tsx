@@ -90,7 +90,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
             }
         });
 
-        if (stableQuantity - 1 <= 0) {
+        if (stableQuantity - 1 <= 1) {
             notificationError("Did not accept lower than 1")
         } else {
             await dispatch("updateCart", {
