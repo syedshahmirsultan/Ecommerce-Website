@@ -34,6 +34,9 @@ const ProductDetail: FC<{ item: oneProductType }> = ({ item }) => {
         user_id: userData.uuid,
         price:item.price,
       };
+      console.log(dataToAddInCart)
+      console.log(dataToAddInCart.user_id);
+
       if (!isExists) {
         dispatch("addToCart", dataToAddInCart);
       }else{
