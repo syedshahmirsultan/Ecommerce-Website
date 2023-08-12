@@ -90,7 +90,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
             }
         });
 
-        if (stableQuantity - 1 <= 1) {
+        if (stableQuantity - 1 < 0) {
             notificationError("Did not accept lower than 1")
         } else {
             await dispatch("updateCart", {
@@ -120,7 +120,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
 
     async function handleProcessCheckout() {
         setLoadings(true);
-        let linkOrg: any = await fetch(`/api/checkout_sessions`, {
+        let linkOrg: any = await fetch(`api/checkout_sessions`, {
             method: "POST",
             body: JSON.stringify(allProductsForCart)
         })
