@@ -9,7 +9,6 @@ import imageUrlBuilder from '@sanity/image-url'
 import toast, { Toaster } from "react-hot-toast"
 import { useRouter } from "next/navigation"
 import LoadingComp from "@/components/shared/LoadingComp"
-import BASE_PATH_FORAPI from "@/components/shared/BasePath"
 
 
 
@@ -121,7 +120,7 @@ const CartComp = ({ allProductsOfStore }: { allProductsOfStore: Array<oneProduct
 
     async function handleProcessCheckout() {
         setLoadings(true);
-        let linkOrg: any = await fetch(`${BASE_PATH_FORAPI}/api/checkout_sessions`, {
+        let linkOrg: any = await fetch(`/api/checkout_sessions`, {
             method: "POST",
             body: JSON.stringify(allProductsForCart)
         })
