@@ -1,3 +1,4 @@
+'use client'
 import { FC } from "react"
 import { HiOutlineChevronDown } from "react-icons/hi"
 import {  NavbarItemType } from "@/components/utils/NavbarArrayAndTypes"
