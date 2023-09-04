@@ -135,7 +135,10 @@ const Navbar = () => {
           </Link>
           <div className="hidden lg:flex justify-between items-center w-full">
             <ul className="flex space-x-4 font-medium text-lg text-purple-950">
-              {NavbarArray.map((item: NavbarItemType, index: number) => (
+            
+              {
+              //@ts-ignore
+              NavbarArray.map((item: NavbarItemType, index: number) => (
                 <Link key={index} href={item.href}>
                   <li className="flex items-center relative rounded-sm px-3 py-1 hover:bg-gray-100 cursor-pointer group">
                     {item.label}
@@ -191,7 +194,9 @@ export default Navbar;
 const MobileNavbar = () => {
   return (
     <div className="w-full px-6 py-4 bg-gray-100">
-      {NavbarArray.map((item: NavbarItemType, index: number) => (
+      {
+      //@ts-ignore 
+      NavbarArray.map((item: NavbarItemType, index: number) => (
         <Expand key={index} item={item} />
       ))}
     </div>
