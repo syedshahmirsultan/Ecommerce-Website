@@ -108,7 +108,7 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; // Updated import for router
+import { useRouter } from "next/navigation"; 
 import ContextWrapper from "@/global/Context";
 import DropDown from "../SubComponent/DropDown";
 import Expand from "../SubComponent/Expand";
@@ -120,7 +120,7 @@ const Navbar = () => {
   const [isNavbarOpen, setNavbarOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  function handleSerachCalledFunc(e: React.KeyboardEvent<HTMLInputElement>) {
+  function handleSearchCalledFunc(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       router.push(`/search/${searchQuery}`);
     }
@@ -135,23 +135,18 @@ const Navbar = () => {
           </Link>
           <div className="hidden lg:flex justify-between items-center w-full">
             <ul className="flex space-x-4 font-medium text-lg text-purple-950">
-            
-              {
-              //@ts-ignore
-              NavbarArray.map((item: NavbarItemType, index: number) => (
-                <Link key={index} href={item.href}>
-                  <li className="flex items-center relative rounded-sm px-3 py-1 hover:bg-gray-100 cursor-pointer group">
-                    {item.label}
-                    {item.isDropDown && (
+              {NavbarArray.map((item: NavbarItemType, index: number) => (
+                <li key={index} className="flex items-center relative rounded-sm px-3 py-1 hover:bg-gray-100 cursor-pointer group">
+                  <Link href={item.href}>{item.label}</Link>
+                  {item.isDropDown && (
+                    <>
                       <HiOutlineChevronDown className="mt-1 -rotate-180 group-hover:rotate-0 duration-300" size={15} />
-                    )}
-                    {item.isDropDown && (
                       <div className={`invisible group-hover:visible absolute top-8 left-0 py-2 px-6 bg-gray-100 font-light min-w-[7.8rem]`}>
                         <DropDown item={item} />
                       </div>
-                    )}
-                  </li>
-                </Link>
+                    </>
+                  )}
+                </li>
               ))}
             </ul>
             <div className="border flex items-center bg-white text-gray-600 pl-3 rounded-md">
@@ -161,7 +156,7 @@ const Navbar = () => {
               <input
                 type="text"
                 value={searchQuery}
-                onKeyDown={handleSerachCalledFunc}
+                onKeyDown={handleSearchCalledFunc}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="focus:outline-none pl-1 pr-5 py-1 w-80 rounded-r-md"
                 placeholder="Search in Our Store"
@@ -194,9 +189,7 @@ export default Navbar;
 const MobileNavbar = () => {
   return (
     <div className="w-full px-6 py-4 bg-gray-100">
-      {
-      //@ts-ignore 
-      NavbarArray.map((item: NavbarItemType, index: number) => (
+      {NavbarArray.map((item: NavbarItemType, index: number) => (
         <Expand key={index} item={item} />
       ))}
     </div>
