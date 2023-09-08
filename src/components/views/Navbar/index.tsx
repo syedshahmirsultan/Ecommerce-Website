@@ -108,7 +108,7 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router"; // Corrected import
+import { useRouter } from "next/navigation";
 import ContextWrapper from "@/global/Context";
 import DropDown from "../SubComponent/DropDown";
 import Expand from "../SubComponent/Expand";
