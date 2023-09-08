@@ -108,7 +108,7 @@ import { HiOutlineChevronDown } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation"; 
+import { useRouter } from "next/router"; // Corrected import
 import ContextWrapper from "@/global/Context";
 import DropDown from "../SubComponent/DropDown";
 import Expand from "../SubComponent/Expand";
@@ -120,7 +120,7 @@ const Navbar = () => {
   const [isNavbarOpen, setNavbarOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  function handleSearchCalledFunc(e: React.KeyboardEvent<HTMLInputElement>) {
+  function handleSearchKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter") {
       router.push(`/search/${searchQuery}`);
     }
@@ -156,7 +156,7 @@ const Navbar = () => {
               <input
                 type="text"
                 value={searchQuery}
-                onKeyDown={handleSearchCalledFunc}
+                onKeyDown={handleSearchKeyDown}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="focus:outline-none pl-1 pr-5 py-1 w-80 rounded-r-md"
                 placeholder="Search in Our Store"
