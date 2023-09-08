@@ -16,40 +16,40 @@ async function fetchAllProductsData() {
 }
 
 
-// const Kid = async ({ params }: { params: { ftype: string } }) => {
-//   let res: responseType = await fetchAllProductsData();
-//   return (
-//     <div
-//       className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4"
-//     >
-//       {res.result.map((items: oneProductType, index: number) => (
-//         <CardAll key={index} singleProductData={items} />
-//       ))}
-//     </div>
-//   )
-// }
-
-// export default Kid
-
-
 const Kid = async ({ params }: { params: { ftype: string } }) => {
-  try {
-    let res: responseType = await fetchAllProductsData();
-    
-    if (!res || !res.result) {
-      throw new Error("No data found");
-    }
+  let res: responseType = await fetchAllProductsData();
+  return (
+    <div
+      className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4"
+    >
+      {res.result.map((items: oneProductType, index: number) => (
+        <CardAll key={index} singleProductData={items} />
+      ))}
+    </div>
+  )
+}
 
-    return (
-      <div className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4">
-        {res.result.map((items: oneProductType, index: number) => (
-          <CardAll key={index} singleProductData={items} />
-        ))}
-      </div>
-    );
-  } catch (error) {
-    // Handle the error here, e.g., display an error message or log it.
-    console.error("Error fetching data:", error);
-    return <div>Error fetching data. Please try again later.</div>;
-  }
-};
+export default Kid
+
+
+// const Kid = async ({ params }: { params: { ftype: string } }) => {
+//   try {
+//     let res: responseType = await fetchAllProductsData();
+    
+//     if (!res || !res.result) {
+//       throw new Error("No data found");
+//     }
+
+//     return (
+//       <div className="grid grid-cols-2 md:grid-cols-3 py-10 lg:grid-cols-4 gap-4">
+//         {res.result.map((items: oneProductType, index: number) => (
+//           <CardAll key={index} singleProductData={items} />
+//         ))}
+//       </div>
+//     );
+//   } catch (error) {
+//     // Handle the error here, e.g., display an error message or log it.
+//     console.error("Error fetching data:", error);
+//     return <div>Error fetching data. Please try again later.</div>;
+//   }
+// };
