@@ -6,7 +6,7 @@ import ProductCarousel from "@/components/views/ProductCarousel";
 import ProductsType from "@/components/views/ProductType";
 
 
-async function fetchAllProductsData() {
+// async function fetchAllProductsData() {
 //   let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-06-07/data/query/production?query=*[_type == "products"]`, {
 //     next: {
 //       revalidate: 60
@@ -19,17 +19,18 @@ async function fetchAllProductsData() {
 
 //   return res.json();
 // }
-//  async function Home() {
-//   let { result }: responseType = await fetchAllProductsData();
+
+  async function Home() {
+  //  let { result }: responseType = await fetchAllProductsData();
   return (
     <div className="overflow-hidden">
       <Hero />
       <ProductsType />
-      <ProductCarousel ProductData={result} />
+      {/* <ProductCarousel ProductData={result} /> */}
       <Jewellery />
       <Newsletter />
     </div>
   )
 }
 
-export default Home;
+export default Home ;
