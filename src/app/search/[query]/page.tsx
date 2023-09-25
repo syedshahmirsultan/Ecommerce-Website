@@ -3,7 +3,7 @@ import { client } from "../../../../sanity/lib/client";
 import CardAll from "@/components/views/CardAll";
 
 async function getAllProductsForSearch() {
-    let response = await client.fetch(`*[_type == "Products"]`);
+    let response = await client.fetch(`*[_type == "product"]`);
     return response;
 };
 
