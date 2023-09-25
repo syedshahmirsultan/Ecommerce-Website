@@ -2,7 +2,7 @@ import { oneProductType, responseType } from "@/components/utils/ProductsDataArr
 import CardAll from "@/components/views/CardAll";
 
 async function fetchAllProductsData() {
-    let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-05-26/data/query/production?query=*%5B_type%20%3D%3D%20%22products%22%20%26%26%20productTypes%5B0%5D%3D%3D%20%22Male%22%5D`, {
+    let res = await fetch(`https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2023-05-26/data/query/production?query=*%5B_type%20%3D%3D%20%22product%22%20%26%26%20productTypes%5B0%5D%3D%3D%20%22Male%22%5D`, {
         next: {
             revalidate: 60
         }
